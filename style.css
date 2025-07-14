@@ -1,0 +1,57 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input[type="file"], button {
+  display: block;
+  margin-bottom: 20px;
+}
+
+pre {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 4px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+/* Loading Overlay Styles */
+#loadingOverlay {
+    position: fixed; /* Covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Hide the overlay by default */
+.hidden {
+    display: none !important; /* Use !important to override potential flex/block */
+}

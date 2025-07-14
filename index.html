@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel to JSON Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Excel to JSON Converter</h1>
+    <input type="file" id="uploadExcel" accept=".xlsx, .xls" />
+    <button id="exportJsonBtn">Export JSON</button>
+    <pre id="output"></pre>
+  </div>
+
+  <div id="loadingOverlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Converting...</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

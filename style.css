@@ -1,57 +1,161 @@
-/* style.css */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-  color: #333;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
 }
 
-input[type="file"], button {
-  display: block;
-  margin-bottom: 20px;
+input[type="file"] {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 20px auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
 }
 
-pre {
-  background: #f0f0f0;
-  padding: 15px;
-  border-radius: 4px;
-  max-height: 400px;
-  overflow: auto;
+input[type="file"]:hover {
+    border-color: #a0a0a0;
 }
 
-/* Loading Overlay Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Styling for the textarea */
+textarea#output {
+    background-color: #f4f7f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: left;
+    width: calc(100% - 40px); /* Adjust for padding */
+    min-height: 350px; /* Increased minimum height */
+    max-height: 600px; /* Increased maximum height */
+    overflow-y: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #333;
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; /* Include padding in width/height */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06); /* Inner shadow for depth */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea#output:focus {
+    border-color: #4CAF50; /* Highlight border on focus */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(76, 175, 80, 0.2); /* Outer glow on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+/* Loading Overlay */
 #loadingOverlay {
-    position: fixed; /* Covers the entire viewport */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top of everything */
+    z-index: 1000;
     color: white;
     font-size: 1.2em;
+    border-radius: 12px;
 }
 
-/* Hide the overlay by default */
 .hidden {
-    display: none !important; /* Use !important to override potential flex/block */
+    display: none !important;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    input[type="file"] {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    textarea#output { /* Apply media query styles to textarea */
+        min-height: 250px; /* Adjust min-height for smaller screens */
+        font-size: 0.8em;
+        padding: 15px;
+    }
 }
